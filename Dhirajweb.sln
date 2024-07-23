@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v_windows", "v_windows", "{DFF29F57-C964-491C-9CF9-4C3E1DF8326A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bench", "bench", "{B7AAE9B3-17E6-421E-9FFC-8C64A9AE2754}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vectors", "v_windows\bench\vectors\vectors.csproj", "{A01DD5A9-3395-424F-8465-9BB48DCF5F6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A01DD5A9-3395-424F-8465-9BB48DCF5F6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A01DD5A9-3395-424F-8465-9BB48DCF5F6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A01DD5A9-3395-424F-8465-9BB48DCF5F6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A01DD5A9-3395-424F-8465-9BB48DCF5F6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B7AAE9B3-17E6-421E-9FFC-8C64A9AE2754} = {DFF29F57-C964-491C-9CF9-4C3E1DF8326A}
+		{A01DD5A9-3395-424F-8465-9BB48DCF5F6B} = {B7AAE9B3-17E6-421E-9FFC-8C64A9AE2754}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D540301F-1DB0-4BE2-9D13-09AEE6FC4DC0}
+	EndGlobalSection
+EndGlobal

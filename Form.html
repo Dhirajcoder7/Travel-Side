@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varrantly ragistration form</title>
+   <style>
+    body{
+        background-color: rgb(144, 236, 144);
+    }
+    .mainbox{
+        margin-left:30%;
+        width:510px;
+    }
+    label{
+        color: rgb(1, 77, 1);
+        font: weight 300px;;
+    }
+    #inputbox{width:500px;
+          height: 25px;
+          margin-bottom: 20px;
+            }
+        #radio{
+            margin-bottom: -20px !important;
+        }
+    #title{
+        width:158px;
+        height: 25px;
+    }
+    #city,#region,#phone,#mail{
+        width:244px;
+    }
+    h1,h2,h3,p{
+        color:rgb(3, 116, 3)
+    }
+    #bolder{
+        font-weight: bold;
+    }
+
+   </style> 
+</head>
+<body><div class="mainbox">
+    <div class="child">
+    <h1 style="text-transform: capitalize;">Varrantly ragistration form</h1>
+    <form action="">
+        <label for="name">Name of machine*:</label><br>
+        <input type="text" id="inputbox" name="name" id="name"><br>
+        <label for="srnumber">Serial Number*:</label><br>
+        <input type="number" id="inputbox" name="srnumber" id="srnumber"><br>
+        <label for="part">Part Name*:</label><br>
+        <input type="number" id="inputbox" name="part" id="part"><br>
+        <label for="date">Purchase Date*:</label><br>
+        <input type="date" id="inputbox" name="date" id="date"><br>
+        <label for="form">Purchase Form*:</label><br>
+        <input type="text" id="inputbox" name="form" id="form"><br>
+
+        
+        <h2>Personal Information</h2>
+        <label for="title" id="inputbox">Name*:</label><br>
+        <input type="text" id="inputbox" id="title"placeholder="Title">
+        <input type="text" id="inputbox" id="title"placeholder="First">
+        <input type="text" id="inputbox" id="title"placeholder="Title"><br>
+        <label for="com">Company*:</label><br>
+        <input type="text" id="inputbox" name="name" id="com"><br>
+        <label for="add">Address*:</label><br>
+        <input type="text" id="inputbox" name="address" id="add" placeholder="Street Address"><br>
+        <input type="text"  id="inputbox"name="str" id="add" placeholder="Street Address 2"><br>
+        <input type="text"  id="inputbox"name="city" id="city" placeholder="City">
+        <input type="text" id="inputbox" name="Region" id="region" placeholder="Region"><br>
+        <input type="text" id="inputbox" name="city" id="city" placeholder="Postal/Zip Code">
+        <input type="text" id="inputbox" name="Region" id="region" placeholder="Romeniya"><br>
+        <label for="phone">phone*</label><br>
+        <input type="number" id="inputbox" name="phone" id="phone" placeholder="### ### ####">
+        <input type="email" id="inputbox" name="email" id="mail" placeholder="E-mail id"><br>
+        <h3>Addition Information</h3>
+        <label for="radio">abel Yes,i would like to receive the peiodic ESAB enewletter.</label>
+        <input type="radio" name="r1" id="radio"> <br><br>
+        <p id="bolder">To help us serve you better,please take a few minutes to answer the questions below.</p><br>
+        <p>Is this product for business or personal use?><br><br><label for="business">Business</label><input type="radio" name="r2" id="business"><br></b>
+        
+    </form>
+    </div>
+</body>
+</html>

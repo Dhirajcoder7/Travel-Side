@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css background</title>
+</head>
+<style>
+    .containar{
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 800px;
+        width:100vw;
+    }
+    .containar::before{
+        content: ' ';
+        position: absolute;
+        background: url(Nature2.jpg)no-repeat center/cover;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+
+    }
+    .child{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 550px;
+        width: 750px;
+        border: 3px solid white;
+        border-radius: 20px;
+      box-shadow: 0 0 100px white;
+    }
+    .child::before{
+        content: '';
+        background:url(venom-dark.jpg)no-repeat center/cover;
+        border-radius: 20px;
+        position: absolute;
+     z-index: 2;
+     height: 550px;
+     width: 750px;
+     filter: brightness(50%);
+
+    }
+    #h-side{color: white;
+        font-size: 30px;
+        font-weight: bold;
+        z-index: 2;
+    }
+    #p-side{color: white;
+        font-size: 15px;
+        font-weight:100px;
+        z-index: 2;
+    }
+</style> 
+<body>
+    <div class="containar">
+        <div class="child"><h1 id="h-side">Wellcome to CSS</h1><p id="p-side">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, voluptatem vero eos laboriosam doloremque veritatis adipisci, recusandae ab sequi dolor mollitia nulla exercitationem pariatur dicta, rem eum quam ducimus similique!
+        Pariatur, molestiae quod. Deleniti vitae nemo incidunt molestiae repellendus, temporibus eius rerum cumque illo rem, voluptas voluptatibus, quia placeat repudiandae minima. Sit ullam, quos commodi ducimus officia ipsum quam amet.
+        Omnis nihil odio hic modi officia, quasi facere expedita dolorum dolorem accusantium magni? Placeat, consequuntur nemo! Mollitia voluptatem eligendi a, alias quia minima explicabo aliquam eaque reiciendis facere dolores molestiae.</p></div>
+    </div>
+    <button><a href="Task1.html">Go to website</a></button>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <style>
+  *{
+    font-family: "Oswald", sans-serif;
+  }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .reset-btn {
+            background-color: #f44336;
+        }
+        .reset-btn:hover {
+            background-color: #e53935;
+        }
+        .confirmation {
+            margin-top: 20px;
+            background-color: #e7f3e7;
+            color: #3c763d;
+            padding: 10px;
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+            display: none;
+        }
+        .ticket-list {
+            margin-top: 20px;
+        }
+        .ticket {
+            display: flex;
+            justify-content: space-between;
+            background-color: #d4edda; /* Light green background for ticket */
+            color: #155724; /* Dark green text */
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+        }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+      /* Smaller padding for smaller button */
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1.2rem; /* Smaller font size */
+        }
+        .delete-btn:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ticket Booking Form</h1>
+        <form id="bookingForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="members">Members:</label>
+            <input type="number" id="members" name="members" min="1" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="budget">Budget:</label>
+            <select id="budget" name="budget" required>
+                <option value="">Select a package</option>
+                <option value="50000">₹50,000</option>
+                <option value="100000">₹100,000</option>
+                <option value="150000">₹150,000</option>
+            </select>
+
+            <button type="button" onclick="bookTicket()">Book Ticket</button>
+            <button type="button" class="reset-btn" onclick="resetForm()">Reset</button>
+        </form>
+        <div id="confirmation" class="confirmation"></div>
+
+        <div id="ticketList" class="ticket-list">
+            <h3>Booked Tickets:</h3>
+            <!-- Tickets will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Aaj ki date ko format karke date input ke 'min' attribute mein set karein
+        const today = new Date().toISOString().split("T")[0];
+        document.getElementById("date").min = today;
+
+        // Tickets ko store karne ke liye ek array
+        let tickets = [];
+
+        function bookTicket() {
+            // Form ke values ko get karein
+            var name = document.getElementById("name").value;
+            var members = document.getElementById("members").value;
+            var date = document.getElementById("date").value;
+            var budget = document.getElementById("budget").value;
+
+            // Check karein ki sabhi fields filled hain ya nahi
+            if (name && members && date && budget) {
+                // Ticket data ko array mein add karein
+                let ticket = {
+                    name: name,
+                    members: members,
+                    date: date,
+                    budget: budget
+                };
+                tickets.push(ticket);
+
+                // Ticket list ko update karein
+                updateTicketList();
+
+                // Confirmation message display karein
+                var confirmationDiv = document.getElementById("confirmation");
+                confirmationDiv.innerHTML = `Thank you, ${name}. Your ticket for ${members} member(s) on ${date} with a budget of ₹${budget} has been successfully booked!`;
+                confirmationDiv.style.display = "block";
+
+                // Form ko reset karein
+                resetForm();
+            } else {
+                alert("Please fill all fields.");
+            }
+        }
+
+        // Ticket list ko update karne ke liye function
+        function updateTicketList() {
+            var ticketListDiv = document.getElementById("ticketList");
+            ticketListDiv.innerHTML = '<h3>Booked Tickets:</h3>';
+
+            tickets.forEach((ticket, index) => {
+                var ticketDiv = document.createElement("div");
+                ticketDiv.className = "ticket";
+                ticketDiv.innerHTML = `
+                    <span>${ticket.name} | ${ticket.members} members | ${ticket.date} | ₹${ticket.budget}</span>
+                    <button class="delete-btn" onclick="deleteTicket(${index})">Delete</button>
+                `;
+                ticketListDiv.appendChild(ticketDiv);
+            });
+        }
+
+        // Ticket ko delete karne ke liye function
+        function deleteTicket(index) {
+            tickets.splice(index, 1);
+            updateTicketList();
+        }
+
+        // Form reset karne ke liye function
+        function resetForm() {
+            document.getElementById("bookingForm").reset();
+            document.getElementById("confirmation").style.display = "none";
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <style>
+  *{
+    font-family: "Oswald", sans-serif;
+  }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .reset-btn {
+            background-color: #f44336;
+        }
+        .reset-btn:hover {
+            background-color: #e53935;
+        }
+        .confirmation {
+            margin-top: 20px;
+            background-color: #e7f3e7;
+            color: #3c763d;
+            padding: 10px;
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+            display: none;
+        }
+        .ticket-list {
+            margin-top: 20px;
+        }
+        .ticket {
+            display: flex;
+            justify-content: space-between;
+            background-color: #d4edda; /* Light green background for ticket */
+            color: #155724; /* Dark green text */
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+        }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+      /* Smaller padding for smaller button */
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1.2rem; /* Smaller font size */
+        }
+        .delete-btn:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ticket Booking Form</h1>
+        <form id="bookingForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="members">Members:</label>
+            <input type="number" id="members" name="members" min="1" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="budget">Budget:</label>
+            <select id="budget" name="budget" required>
+                <option value="">Select a package</option>
+                <option value="50000">₹50,000</option>
+                <option value="100000">₹100,000</option>
+                <option value="150000">₹150,000</option>
+            </select>
+
+            <button type="button" onclick="bookTicket()">Book Ticket</button>
+            <button type="button" class="reset-btn" onclick="resetForm()">Reset</button>
+        </form>
+        <div id="confirmation" class="confirmation"></div>
+
+        <div id="ticketList" class="ticket-list">
+            <h3>Booked Tickets:</h3>
+            <!-- Tickets will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Aaj ki date ko format karke date input ke 'min' attribute mein set karein
+        const today = new Date().toISOString().split("T")[0];
+        document.getElementById("date").min = today;
+
+        // Tickets ko store karne ke liye ek array
+        let tickets = [];
+
+        function bookTicket() {
+            // Form ke values ko get karein
+            var name = document.getElementById("name").value;
+            var members = document.getElementById("members").value;
+            var date = document.getElementById("date").value;
+            var budget = document.getElementById("budget").value;
+
+            // Check karein ki sabhi fields filled hain ya nahi
+            if (name && members && date && budget) {
+                // Ticket data ko array mein add karein
+                let ticket = {
+                    name: name,
+                    members: members,
+                    date: date,
+                    budget: budget
+                };
+                tickets.push(ticket);
+
+                // Ticket list ko update karein
+                updateTicketList();
+
+                // Confirmation message display karein
+                var confirmationDiv = document.getElementById("confirmation");
+                confirmationDiv.innerHTML = `Thank you, ${name}. Your ticket for ${members} member(s) on ${date} with a budget of ₹${budget} has been successfully booked!`;
+                confirmationDiv.style.display = "block";
+
+                // Form ko reset karein
+                resetForm();
+            } else {
+                alert("Please fill all fields.");
+            }
+        }
+
+        // Ticket list ko update karne ke liye function
+        function updateTicketList() {
+            var ticketListDiv = document.getElementById("ticketList");
+            ticketListDiv.innerHTML = '<h3>Booked Tickets:</h3>';
+
+            tickets.forEach((ticket, index) => {
+                var ticketDiv = document.createElement("div");
+                ticketDiv.className = "ticket";
+                ticketDiv.innerHTML = `
+                    <span>${ticket.name} | ${ticket.members} members | ${ticket.date} | ₹${ticket.budget}</span>
+                    <button class="delete-btn" onclick="deleteTicket(${index})">Delete</button>
+                `;
+                ticketListDiv.appendChild(ticketDiv);
+            });
+        }
+
+        // Ticket ko delete karne ke liye function
+        function deleteTicket(index) {
+            tickets.splice(index, 1);
+            updateTicketList();
+        }
+
+        // Form reset karne ke liye function
+        function resetForm() {
+            document.getElementById("bookingForm").reset();
+            document.getElementById("confirmation").style.display = "none";
+        }
+    </script>
+</body>
+</html>

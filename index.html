@@ -4,23 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Navbar and Carousel</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <style>
       * {
         margin: 0;
         padding: 0;
-        font-family: "Josefin Sans", sans-serif;
+        font-family: @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Satisfy&display=swap');
+        ;
       }
       html {
         scroll-behavior: smooth;
       }
+      body{background-color:whitesmoke}
 
       .navbar {
         background-color: #0e0d0d83;
@@ -138,7 +134,6 @@
       }
      
       .card-containar{
-        height: auto;
         display:grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap:1rem;
@@ -146,15 +141,24 @@
         justify-content:center;
         align-items: center;
       }
-      
+      @media (max-width:390px) {
+        .card-containar{
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center
+        }
+      }
       .card-element {
         margin: 3rem;
         display: flex;
-        background-color: rgb(224, 218, 218);
+        background-color:white;
+        box-shadow:0 0 50px rgba(0, 0, 0, 0.13);
         flex-direction: column;
+        font-size:13px;
         align-items: center;
         width: 17rem;
-        border: 1px solid rgb(146, 137, 137);
+        border: 1px solid rgba(0, 0, 0, 0.15);
         border-radius: 10px;
         padding: 10px;
         cursor: pointer;
@@ -690,7 +694,6 @@
       <button id="toggle-btn" ><a href="#ticket">Tickets</a></button>
       <button id="toggle-btn" ><a href="#branch">Branches</a></button>
       <button id="toggle-btn" ><a href="#contect-us-p">Contect Us</a></button>
-      <button id="toggle-btn"><input type="radio"></button>
     </div>
     <h1 id="home"></h1>
     <div class="Home-img"></div>

@@ -16,7 +16,7 @@
       html {
         scroll-behavior: smooth;
       }
-      body{background-color:whitesmoke}
+      body{background-color:rgba(53, 142, 209, 0.43)}
 
       .navbar {
         background-color: #0e0d0d83;
@@ -62,7 +62,7 @@
       }
       a {
         text-decoration: none;
-        color:rgb(165, 0, 0);
+        color:rgb(53, 106, 203);
         font-size: 20px;
         font-weight: bold;
       }
@@ -133,53 +133,11 @@
         width: 89rem;
       }
      
-      .card-containar{
-        display:grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap:1rem;
-        justify-content:center;
-        align-items: center;
-      }
+      
      
-      .card-element {
-        margin: 3rem;
-        display: flex;
-        background-color:white;
-        box-shadow:0 0 50px rgba(0, 0, 0, 0.13);
-        flex-direction: column;
-        font-size:13px;
-        align-items: center;
-        width: 17rem;
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        border-radius: 5px;
-        padding: 10px;
-        cursor: pointer;
-      }
-      @media (max-width:780px){
-        .card-element{
-          width:15rem;
-        }
-      }
-      @media (max-width:440px){
-        .card-element{
-          width:300px;
-          height:390px;
-        }
-      }
-      .card-element:hover {
-        transition: 0.3s ease-in-out;
-        transform: scale(1.05);
-
-        box-shadow: 0 0 40px rgba(250, 253, 251, 0.103);
-      }
-      .card-img {
-        width: 95%;
-        box-sizing: border-box;
-      }
-      .card-p {
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 200px;
-      }
+     
+       
+     
 
       .heading-top {
         color: white;
@@ -190,24 +148,16 @@
         font-size: 4rem;
         z-index: 1;
       }
-      .review {
-        height: 30px;
-        width: 100%;
-      }
-
-      .img-review {
-        height: 30px;
-        width: 100px;
-      }
+      
       h2 {
         margin-top: 1rem;
       }
       .ticket-box {
-        background-color:whitesmoke;
+        /* background-color:rgba(53, 142, 209, 0.43); */
         height: 49rem;
       }
       .T-headline {
-        color: red;
+        color:rgb(53, 106, 203);
         font-size: 2.3rem;
         text-align: center;
         margin-top: 5rem;
@@ -230,14 +180,15 @@
       .container {
         width: 400px;
         margin: 50px auto;
-        background-color:rgb(168, 159, 159);
+        background-color:rgba(251, 251, 251, 0.38);
         padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgba(77, 71, 71, 0.1);
       }
       .container:hover{
            transform: scale(1.02);
-           transition:ease 0.2s;
-           box-shadow:5px 5px 5px black; 
+           border-radius:  10px;
+           transition:ease 0.5s;
+           box-shadow:5px 5px 15px rgba(77, 71, 71, 0.7); 
       }
       @media (max-width:780px) {
         .container{
@@ -333,7 +284,7 @@
       }
       
       .main-branches{
-        background-color:whitesmoke;
+        /* background-color:whitesmoke; */
         height:55rem;
         padding-top:20px;
       }
@@ -352,7 +303,7 @@
       .branch-hd{
         position: relative;
         margin-top: 4.5rem;
-        color:red;
+        color:rgb(53, 106, 203);
       }
       .branches{
         padding:0 2rem;
@@ -467,7 +418,7 @@
     }
     
     .cont-us{
-      background-color:whitesmoke;
+      /* background-color:whitesmoke; */
       height:120vh;
       padding-top:0rem;
     }
@@ -486,7 +437,7 @@
       position: relative;
       top:90px;
       left:-20px;
-      color:red;
+      color:rgb(53, 106, 203);
       font-weight:bold;
       font-size:2rem;
       text-shadow: 2px 2px 2px black;
@@ -571,7 +522,7 @@
     #cont-form{
       width: 50%;
       height:18rem; 
-      background-color: rgba(158, 140, 140, 0.185);
+      background-color: rgba(251, 251, 251, 0.38);
       border-radius: 20px;
       padding:5rem;
     }
@@ -584,7 +535,7 @@
       width: 100%;
       bottom:0px;
       height:5rem;
-      background-color: rgba(255, 0, 0, 0.859);
+      background-color: rgb(53, 106, 203);
       display:grid;
       grid-template-columns: repeat(4,1fr);
       gap: 10px;
@@ -633,7 +584,7 @@
    #toggle-btn{
     text-align: center;
     padding:10px;
-    color:red;
+    color:rgb(53, 106, 203);
     text-shadow: 2px 2px 3px white;
     background-color: white;
     width:15rem;
@@ -643,7 +594,7 @@
    }
    #openBtn,#closeBtn{
     border-radius: 30px;
-    color:red;
+    color:rgb(53, 106, 203);
         font-size: 20px;
         font-weight: bold;
         background-color: white;
@@ -663,10 +614,162 @@
         box-shadow: 0 5px 10px white;
         background-color: rgb(204, 199, 191);
    }
+
+
+
+
+   article {
+  --img-scale: 1.001;
+  --title-color: black;
+  --link-icon-translate: -20px;
+  --link-icon-opacity: 0;
+  position: relative;
+  border-radius: 16px;
+  box-shadow: none;
+  background: #fff;
+  transform-origin: center;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+article a::after {
+  position: absolute;
+  inset-block: 0;
+  inset-inline: 0;
+  cursor: pointer;
+  content: "";
+}
+
+/* basic article elements styling */
+article h2 {
+  margin: 0 0 18px 0;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: var(--title-color);
+  transition: color 0.3s ease-out;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+article img {
+  max-width: 100%;
+  transform-origin: center;
+  transform: scale(var(--img-scale));
+  transition: transform 0.4s ease-in-out;
+}
+
+.article-body {
+  padding: 24px;
+}
+
+article a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #28666e;
+}
+
+article a:focus {
+  outline: 1px dotted #28666e;
+}
+
+article a .icon {
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+  transform: translateX(var(--link-icon-translate));
+  opacity: var(--link-icon-opacity);
+  transition: all 0.3s;
+}
+
+/* using the has() relational pseudo selector to update our custom properties */
+article:has(:hover, :focus) {
+  --img-scale: 1.1;
+  --title-color: #28666e;
+  --link-icon-translate: 0;
+  --link-icon-opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+
+
+
+
+/* body {
+  margin: 0;
+  padding: 48px 0;
+  font-family: "Figtree", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  background-image: linear-gradient(45deg, #7c9885, #b5b682);
+  min-height: 100vh;
+} */
+body{
+    background-color:rgb(148, 165, 193);
+}
+.articles {
+  display: grid;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+@media screen and (max-width: 960px) {
+  article {
+    container: card/inline-size;
+  }
+  .article-body p {
+    /* display: none; */
+  }
+}
+
+@container card (min-width: 380px) {
+  .article-wrapper {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+  }
+  .article-body {
+    padding-left: 0;
+  }
+  figure {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  figure img {
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+
+
+
+
     </style>
   </head>
     <nav class="navbar">
-      <h1 class="logo"><span style="color: red;">M</span>ake <span style="color: red;">T</span>rip</h1>
+      <h1 class="logo"><span style="color:rgb(53, 106, 203);">M</span>ake <span style="color:rgb(53, 106, 203);">T</span>rip</h1>
       <ul class="manu">
         <li><a href="#home">Home</a></li>
         <li><a href="#place">Places</a></li>
@@ -691,84 +794,134 @@
     <div class="Home-img"></div>
     <p id="place"></p>
     <div class="big-card-containar">
-      <h1 style="color:red; font-size: 2.5rem; margin-top: 5rem;padding:0 2rem;">
+      <h1 style="color:rgb(53, 106, 203); font-size: 2.5rem; margin-top: 5rem;padding:0 2rem;">
         Popular Destination
       </h1>
-      </div>
-      <div class="card-containar">
-        <div class="card-element" data-aos="fade-up-right">
-          <img class="card-img" src="cities6.jpg" alt="" />
-          <h2>London</h2>
-          <div class="review"><img src="review.png" class="img-review" /></div>
-          <p class="card-p">
-            London is the capital city of the United Kingdom. It is the U.K.'s
-            largest metropolis and its economic, transportation, and cultural
-            centre.
-          </p>
-        </div>
-        <div class="card-element" data-aos="fade-up">
-          <img class="card-img" src="cities1.jpg" alt="" />
-          <h2>Paris</h2>
-          <div class="review">
-            <img src="review.png" class="img-review" alt="" />
+      </div><br>
+      
+      <section class="articles">
+        <article>
+          <div class="article-wrapper">
+            <figure>
+              <img src="Chinamount.jpg" alt="" />
+            </figure>
+            <div class="article-body">
+              <h2>This is China Town</h2>
+              <p>
+                Chinatown is a vibrant blend of culture, history, and tradition.
+Its lively streets and delicious food bring people together from all walks of life.
+A visit to Chinatown  is like stepping into a world full of rich heritage and unforgettable experiences.</p>
+              <a href="#" class="read-more">
+                Read more <span class="sr-only">about this is some title</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
           </div>
-          <p class="card-p">
-            The capital of France, Paris is known for its beauty, art, fashion,
-            and food. Nicknamed the "City of Light", Paris is a major center of
-            finance, diplomacy, and commerce.
-          </p>
-        </div>
-        <div class="card-element" data-aos="fade-left">
-          <img class="card-img" src="cities3.jpg" alt="" />
-          <h2>Japan</h2>
-          <div class="review">
-            <img src="review.png" class="img-review" alt="" />
+        </article>
+        <article>
+      
+          <div class="article-wrapper">
+            <figure>
+              <img src="Woman.jpg" alt="" />
+            </figure>
+            <div class="article-body">
+              <h2>This is New Zealand</h2>
+              <p>New Zealand
+                Known for its stunning natural beauty, New Zealand offers lush forests, mountains, lakes, and beaches. It's a paradise for outdoor lovers, with plenty of activities like hiking, bungee jumping, and exploring the vibrant culture.
+               </p>
+              <a href="#" class="read-more">
+                Read more <span class="sr-only">about this is some title</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
           </div>
-          <p class="card-p">
-            Japanese words have been incorporated into the English language
-            since the early 19th century, with a steady stream of loanwords
-            beginning in the late 19th century.
-          </p>
-        </div>
-      <!-- <div class="card-containar-1"> -->
-        <div class="card-element" data-aos="fade-up-right">
-          <img class="card-img" src="cities5.jpg" alt="" />
-          <h2>Russia</h2>
-          <div class="review">
-            <img src="review.png" class="img-review" alt="" />
+        </article>
+        <article>
+      
+          <div class="article-wrapper">
+            <figure>
+              <img src="Guiter.jpg" alt="" />
+            </figure>
+            <div class="article-body">
+              <h2>This is Norway</h2>
+              <p>
+                Norway's stunning fjords and towering mountains create a dreamlike landscape, while the midnight sun and Northern Lights offer mesmerizing natural spectacles,
+                From charming villages to bustling cities, Norway has something for everyone to enjoy.</p>
+              <a href="#" class="read-more">
+                Read more <span class="sr-only">about this is some title</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
           </div>
-          <p class="card-p">
-            Russia, the largest country in the world, occupies one-tenth of all
-            the land on Earth. The Russian landscape varies from desert to
-            frozen coastline, tall mountains to giant marshes.
-          </p>
-        </div>
-        <div class="card-element" data-aos="fade-up">
-          <img class="card-img" src="cities4.jpg" alt="" />
-          <h2>USA</h2>
-          <div class="review">
-            <img src="review.png" class="img-review" alt="" />
+        </article>
+      </section><br><br>
+      <section class="articles">
+        <article>
+          <div class="article-wrapper">
+            <figure>
+              <img src="cities6.jpg" alt="" />
+            </figure>
+            <div class="article-body">
+              <h2>This is London</h2>
+              <p>
+                London is a city with a rich history that spans over 2,000 years, home to iconic landmarks like the Tower of London, Westminster Abbey, and Buckingham Palace. It is known for its cultural significance, and the Victoria and Albert Museum. 
+              </p>
+              <a href="#" class="read-more">
+                Read more <span class="sr-only">about this is some title</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
           </div>
-          <p class="card-p">
-            The United States of America (USA or U.S.A.), commonly known as the
-            United States (US or U.S.) or America, is a country primarily
-            located in North America. It is a federal union of 50 states.
-          </p>
-        </div>
-        <div class="card-element" data-aos="fade-left">
-          <img class="card-img" src="cities2.jpg" alt="" />
-          <h2>Australia</h2>
-          <div class="review">
-            <img src="review.png" class="img-review" alt="" />
+        </article>
+        <article>
+      
+          <div class="article-wrapper">
+            <figure>
+              <img src="cities4.jpg" alt="" />
+            </figure>
+            <div class="article-body">
+              <h2>This is New York</h2>
+              <p>
+                New York City is one of the most iconic and dynamic cities in the world, known for its towering skyscrapers, including the famous Empire State Building and One World Trade Center.  
+                </p>
+              <a href="#" class="read-more">
+                Read more <span class="sr-only">about this is some title</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
           </div>
-          <p class="card-p">
-            Australia is the only country in the world that covers an entire
-            continent. It is one of the largest countries on Earth. Although it
-            is rich in natural resources and has a lot of fertile land,
-          </p>
-        </div>
-      </div>
-    </div>
+        </article>
+        <article>
+      
+          <div class="article-wrapper">
+            <figure>
+              <img src="cities5.jpg" alt="" />
+            </figure>
+            <div class="article-body">
+              <h2>This is Dubai</h2>
+              <p>
+                Dubai is a modern, futuristic city known for its stunning skyline, including the Burj Khalifa, the tallest building in the world. It’s a global business hub with luxurious shopping, world-class hotels, and extravagant resorts. 
+              </p>
+              <a href="#" class="read-more">
+                Read more <span class="sr-only">about this is some title</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
 
     <div class="ticket-box" id="ticket">
       <br /><br />
@@ -848,7 +1001,7 @@
            <h1 class="cont-h">Contect <span style="color:green;">Us</span></h1>
            <div class="cont-us-grid">
               <div class="cont-logo">
-                <h2 style="text-align: center;font-size:2rem;"><span style="color: red;text-shadow: 1px 1px black;">Here</span> to <span style="color: green;text-shadow: 1px 1px white;">Contect</span></h2><br>
+                <h2 style="text-align: center;font-size:2rem;"><span style="color:rgb(53, 106, 203);text-shadow: 1px 1px black;">Here</span> to <span style="color: green;text-shadow: 1px 1px white;">Contect</span></h2><br>
                 <div class="boy-img"><img src="callperson.png" alt=""></div>
                 <div class="cont-logo-box">
                 <div class="cont-logos"><a target="_zblank" href="https://www.instagram.com/dhiraj.21_/profilecard/?igsh=MTFkNTl4d2U2dTFncQ=="><img id="cont-logos-1" src="insta1-removebg-preview.png" alt=""></a></div>

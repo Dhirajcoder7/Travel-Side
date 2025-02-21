@@ -1011,14 +1011,22 @@ A visit to Chinatown  is like stepping into a world full of rich heritage and un
               </div>
               </div>
               <div class="cont-email">
-                <form action=" " id="cont-form">
-                  <label for="name" id="cont-label">Username:</label>
-                  <input type="text" id="cont-name" placeholder="Enter your name..."><br>
-                  <label for="pass" id="cont-label-pass">Password:</label>
-                  <input type="Password" placeholder="Password Please!" id="cont-pass" ><br>
-                  <input type="button" id="cont-btn" value="Sign-Up">
-                </form>
+                
+                <form action="https://formspree.io/f/mldgrqgw"
+      method="POST" id="cont-form">
+    <label for="name" id="cont-label">Username:</label>
+    <input type="text" name="UserName" id="cont-name" placeholder="Enter your name..."><br>
+    
+    <label for="pass" id="cont-label-pass">E-mail Id:</label>
+    <input type="email" name="Email-ID" id="cont-pass" placeholder="ABC@gmail.com"><br>
+    
+    <label for="msg">Message:</label>
+    <textarea style="width:100%;height:100px;border-radius:10px;font-size:20px;padding:10px;" name="Message" id=""></textarea>
+           <button type="submit" id="cont-btn">Send</button>
+           </form>
+                
               </div>
+             
           </div>
         </div>
            <footer class="footer">
@@ -1030,6 +1038,36 @@ A visit to Chinatown  is like stepping into a world full of rich heritage and un
         </div>
     
     <script>
+
+// ------------user form clear method------------
+
+ document.getElementById('cont-form').addEventListener('submit', function(event) {
+      // Prevents the default form submission behavior (page reload)
+      event.preventDefault();
+
+      // Send form data to Formspree (You can add your logic here, if any)
+      const formData = new FormData(this);
+      fetch(this.action, {
+          method: this.method,
+          body: formData,
+          headers: {
+              'Accept': 'application/json'
+          }
+      }).then(response => {
+          if (response.ok) {
+              // Form successfully submitted, clear the form fields
+              document.getElementById('cont-form').reset();
+              alert("Form submitted successfully!");
+          } else {
+              alert("There was an issue with your submission.");
+          }
+      }).catch(error => {
+          alert("An error occurred. Please try again.");
+      });
+  });
+
+
+      
       document
         .getElementById("ticketForm")
         .addEventListener("submit", function (event) {

@@ -1,708 +1,835 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WWW.TravelSide.com//Created by Dhiraj gupta.</title>
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Satisfy&display=swap');
-        ;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body{background-color:rgba(53, 142, 209, 0.43)}
 
-      .navbar {
-        background-color: #0e0d0d83;
-        border-bottom: 1px solid black;
-        border-top: 1px solid black;
-        height: 50px;
-        /* width: 100%; */
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 5;
-      }
-      @media (max-width:950px) {
-        li {
-          display: none;
-        }
-      }
-     
-      .manu {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .manu li {
-        list-style: none;
-        margin: 0 20px;
-        background-color: white;
-        border: 1.5px solid black;
-        border-radius: 10px;
-        padding: 10px;
-        box-shadow: 0 0 2px white;
-      }
-      li:hover {
-        animation: 0.5s ease;
-        transform: scale(1.1);
-        border-bottom: 2px solid white;
-        box-shadow: 0 5px 10px white;
-        background-color: rgb(204, 199, 191);
-      }
-      a {
-        text-decoration: none;
-        color:rgb(53, 106, 203);
-        font-size: 20px;
-        font-weight: bold;
-      }
-      .logo {
-        border: 3px solid transparent;
-        border-radius: 10px;
-        animation: logo 1.5s ease-in infinite;
-        padding: 5px;
-        color: black;
-        text-shadow: 2px 2px 1px white;
-        font-size: 2.3rem;
-      }
-      .Home-img {
-        margin-top: -5rem;
-        height: 45.25rem;
-        animation: image 15.5s ease-in infinite;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-      }
-      @media (max-width:780px){
-        .Home-img{
-         height: 45rem;
-        }
-      }
-      @media (max-width:440px){
-        .Home-img{
-          height: 20rem;
-          /* width:100%; */
-        }
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Navbar and Carousel</title>
 
-      @keyframes image {
-        0% {
-          background-image: url("cities6.jpg");
-        }
-        25% {
-          background-image: url("travelingFirst.jpg");
-        }
-        50% {
-          background-image: url("traveling3.jpg");
-        }
-        75% {
-          background-image: url("travelingS.jpg");
-        }
-        100% {
-          background-image: url("traveling5.jpg");
-        }
-      }
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Satisfy&display=swap');
+      ;
+    }
 
-      @keyframes logo {
-        10% {
-          border-top: 3px solid rgb(255, 254, 254);
-        }
-        25% {
-          border-bottom: 3px solid rgb(184, 147, 93);
-        }
-        50% {
-          border-left: 3px solid rgb(67, 185, 67);
-        }
-        100% {
-          border-right: 3px solid rgb(155, 107, 90);
-        }
-      }
+    html {
+      scroll-behavior: smooth;
+    }
 
-      #img-c {
-        height: 43rem;
-        width: 89rem;
-      }
-     
-      
-     
-     
-       
-     
+    body {
+      background-color: rgba(53, 142, 209, 0.43)
+    }
 
-      .heading-top {
-        color: white;
-        text-shadow: 5px 5px 5px black;
-        position: absolute;
-        top: 30%;
-        left: 27%;
-        font-size: 4rem;
-        z-index: 1;
-      }
-      
-      h2 {
-        margin-top: 1rem;
-      }
-      .ticket-box {
-        /* background-color:rgba(53, 142, 209, 0.43); */
-        height: 49rem;
-      }
-      .T-headline {
-        color:rgb(53, 106, 203);
-        font-size: 2.3rem;
-        text-align: center;
-        margin-top: 5rem;
-      }
-      .T-containar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
+    .navbar {
+      background-color: #0e0d0d83;
+      border-bottom: 1px solid black;
+      border-top: 1px solid black;
+      height: 50px;
+      /* width: 100%; */
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
 
-      /* Ticket css from Github */
-
-      #T-car {
-        position: absolute;
-        width: 20%;
-        right: 5%;
-        filter: drop-shadow(5px 5px 2px black);
-      }
-      .container {
-        width: 400px;
-        margin: 50px auto;
-        background-color:rgba(251, 251, 251, 0.38);
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(77, 71, 71, 0.1);
-      }
-      .container:hover{
-           transform: scale(1.02);
-           border-radius:  10px;
-           transition:ease 0.5s;
-           box-shadow:5px 5px 15px rgba(77, 71, 71, 0.7); 
-      }
-      @media (max-width:780px) {
-        .container{
-          width: 390px;
-        }
-      }
-      @media (max-width:440px) {
-        .container{
-          width:75%;
-          height:400px;
-          border-radius: 10px;
-        }
-      }
-
-      h1 {
-        text-align: center;
-        color: #333;
-      }
-
-      label {
-        display: block;
-        margin-bottom: 8px;
-        color: black;
-      }
-
-      input,
-      select,
-      button {
-        width: 95%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border-radius: 5px;
-        border: 1px solid #ddd;
-      }
-      
-      input:active{
-        transition: ease 0.1s;
-        transform: scale(1.03);
-      }
-      button:active{
-        transition: ease 0.1s;
-        transform: scale(1.03);
-      }
-
-      button {
-        background-color: #28a745;
-        color: white;
-        cursor: pointer;
-        font-size: 16px;
-      }
-
-      button:hover {
-        background-color: #218838;
-      }
-
-      .confirmation {
-        text-align: center;
-        margin-top: 20px;
-        padding: 15px;
-        border: 2px double black;
-        color: black;
+    @media (max-width:950px) {
+      li {
         display: none;
       }
-      #T-logo{
-        width: 30%;
-        position:absolute;
-        left: 0;
+    }
+
+    .manu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .manu li {
+      list-style: none;
+      margin: 0 20px;
+      background-color: white;
+      border: 1.5px solid black;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 0 2px white;
+    }
+
+    li:hover {
+      animation: 0.5s ease;
+      transform: scale(1.1);
+      border-bottom: 2px solid white;
+      box-shadow: 0 5px 10px white;
+      background-color: rgb(204, 199, 191);
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(53, 106, 203);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .logo {
+      border: 3px solid transparent;
+      border-radius: 10px;
+      animation: logo 1.5s ease-in infinite;
+      padding: 5px;
+      color: black;
+      text-shadow: 2px 2px 1px white;
+      font-size: 2.3rem;
+    }
+
+    .Home-img {
+      margin-top: -5rem;
+      height: 45.25rem;
+      animation: image 15.5s ease-in infinite;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    @media (max-width:780px) {
+      .Home-img {
+        height: 45rem;
       }
-      @media (max-width:780px) {
-        #T-logo{
-          display: none;
-        } 
+    }
+
+    @media (max-width:440px) {
+      .Home-img {
+        height: 20rem;
+        /* width:100%; */
       }
-      #T-car{
-        margin-top: 5rem;
-       }
-       @media (max-width:780px) {
-        #T-car{
-          display: none;
-        }
-        
+    }
+
+    @keyframes image {
+      0% {
+        background-image: url("cities6.jpg");
       }
-      #T-Airplan{
-        width: 20%;
-        position:absolute;
-        animation: fly  5s ease-in infinite;
-        filter: drop-shadow(-25px 50px 5px rgba(0, 0, 0, 0.473));
+
+      25% {
+        background-image: url("travelingFirst.jpg");
       }
-      @media (max-width:780px) {
-        #T-Airplan{
-          width: 35%;
-        }
+
+      50% {
+        background-image: url("traveling3.jpg");
       }
-      
-      .main-branches{
-        /* background-color:whitesmoke; */
-        height:55rem;
-        padding-top:20px;
+
+      75% {
+        background-image: url("travelingS.jpg");
       }
-      @media (max-width:780px) {
-        .main-branches{
-          height:220vh;
-        }
-        
+
+      100% {
+        background-image: url("traveling5.jpg");
       }
-      @media (max-width:440px) {
-        .main-branches{
-          height: 110rem;
-        }
-        
+    }
+
+    @keyframes logo {
+      10% {
+        border-top: 3px solid rgb(255, 254, 254);
       }
-      .branch-hd{
-        position: relative;
-        margin-top: 4.5rem;
-        color:rgb(53, 106, 203);
+
+      25% {
+        border-bottom: 3px solid rgb(184, 147, 93);
       }
-      .branches{
-        padding:0 2rem;
-        margin-top:3rem;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+
+      50% {
+        border-left: 3px solid rgb(67, 185, 67);
       }
-      @media (max-width:780px) {
-        .branches{
+
+      100% {
+        border-right: 3px solid rgb(155, 107, 90);
+      }
+    }
+
+    #img-c {
+      height: 43rem;
+      width: 89rem;
+    }
+
+
+
+
+
+
+
+    .heading-top {
+      color: white;
+      text-shadow: 5px 5px 5px black;
+      position: absolute;
+      top: 30%;
+      left: 27%;
+      font-size: 4rem;
+      z-index: 1;
+    }
+
+    h2 {
+      margin-top: 1rem;
+    }
+
+    .ticket-box {
+      /* background-color:rgba(53, 142, 209, 0.43); */
+      height: 49rem;
+    }
+
+    .T-headline {
+      color: rgb(53, 106, 203);
+      font-size: 2.3rem;
+      text-align: center;
+      margin-top: 5rem;
+    }
+
+    .T-containar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Ticket css from Github */
+
+    #T-car {
+      position: absolute;
+      width: 20%;
+      right: 5%;
+      filter: drop-shadow(5px 5px 2px black);
+    }
+
+    .container {
+      width: 400px;
+      margin: 50px auto;
+      background-color: rgba(251, 251, 251, 0.38);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(77, 71, 71, 0.1);
+    }
+
+    .container:hover {
+      transform: scale(1.02);
+      border-radius: 10px;
+      transition: ease 0.5s;
+      box-shadow: 5px 5px 15px rgba(77, 71, 71, 0.7);
+    }
+
+    @media (max-width:780px) {
+      .container {
+        width: 390px;
+      }
+    }
+
+    @media (max-width:440px) {
+      .container {
+        width: 75%;
+        height: 400px;
+        border-radius: 10px;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: black;
+    }
+
+    input,
+    select,
+    button {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    input:active {
+      transition: ease 0.1s;
+      transform: scale(1.03);
+    }
+
+    button:active {
+      transition: ease 0.1s;
+      transform: scale(1.03);
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      border-radius: 15px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .confirmation {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      border: 2px double black;
+      color: black;
+      display: none;
+    }
+
+    #T-logo {
+      width: 30%;
+      position: absolute;
+      left: 0;
+    }
+
+    @media (max-width:780px) {
+      #T-logo {
+        display: none;
+      }
+    }
+
+    #T-car {
+      margin-top: 5rem;
+    }
+
+    @media (max-width:780px) {
+      #T-car {
+        display: none;
+      }
+
+    }
+
+    #T-Airplan {
+      width: 20%;
+      position: absolute;
+      animation: fly 5s ease-in infinite;
+      filter: drop-shadow(-25px 50px 5px rgba(0, 0, 0, 0.473));
+    }
+
+    @media (max-width:780px) {
+      #T-Airplan {
+        width: 35%;
+      }
+    }
+
+    .main-branches {
+      /* background-color:whitesmoke; */
+      height: 55rem;
+      padding-top: 20px;
+    }
+
+    @media (max-width:780px) {
+      .main-branches {
+        height: 220vh;
+      }
+
+    }
+
+    @media (max-width:440px) {
+      .main-branches {
+        height: 110rem;
+      }
+
+    }
+
+    .branch-hd {
+      position: relative;
+      margin-top: 4.5rem;
+      color: rgb(53, 106, 203);
+    }
+
+    .branches {
+      padding: 0 2rem;
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width:780px) {
+      .branches {
         grid-template-columns: repeat(2, 1fr);
       }
-     
+
     }
+
     @media (max-width:440px) {
-        .branches{
+      .branches {
         grid-template-columns: repeat(1, 1fr);
-       
+
       }
     }
-      .branch-child{
-      
-        text-align: center;
-      }
-      .branch-child img{
-        height:15rem;
-        
-      }
-      /* .branch-child:hover{
+
+    .branch-child {
+
+      text-align: center;
+    }
+
+    .branch-child img {
+      height: 15rem;
+
+    }
+
+    /* .branch-child:hover{
          transition: ease 0.05s;
          transform:scale(1.02);
         
       } */
-      .branch-child img{
-        width: 100%;
-        border-radius:10px;
-        box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.561);
-      }
-      
-      .branch-child img{
-        width:90%;
-      }
-      .b-search-box{
-        display: grid;
-        grid-template-columns:repeat(2,1fr);
-        margin-top: 3rem;
-        gap:3rem;
-      }
-      @media (max-width:780px) {
-        .b-search-box{
-          grid-template-columns:repeat(1,1fr);
-        }
-      }
-      
-      .map-img{
-     text-align: center;
+    .branch-child img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.561);
     }
-    .map-img img{
+
+    .branch-child img {
+      width: 90%;
+    }
+
+    .b-search-box {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 3rem;
+      gap: 3rem;
+    }
+
+    @media (max-width:780px) {
+      .b-search-box {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .map-img {
+      text-align: center;
+    }
+
+    .map-img img {
       filter: drop-shadow(-15px 5px 1px rgba(0, 0, 0, 0.455));
       height: 100%;
     }
-    .b-img img{
+
+    .b-img img {
       width: 50%;
-      margin-left:5rem;
-      background-position:center;
+      margin-left: 5rem;
+      background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
     }
+
     /* .b-img{
       
     } */
-    .b-search{
+    .b-search {
       height: 20rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-  
+
     }
-    .b-search input{
-    border-radius: 30px;
-      width:70%;
+
+    .b-search input {
+      border-radius: 30px;
+      width: 70%;
       border: 2px solid black;
       cursor: pointer;
     }
-    #srch:hover{
+
+    #srch:hover {
       transition: ease 0.02s;
       transform: scale(1.02);
-      box-shadow:-3px 3px 1px black;
+      box-shadow: -3px 3px 1px black;
     }
-    #srch-btn:active{
+
+    #srch-btn:active {
       transition: ease 0.02s;
       transform: scale(1.03);
-      box-shadow:3px 3px 2px black ;
+      box-shadow: 3px 3px 2px black;
     }
-    .b-form{
+
+    .b-form {
       width: 90%;
-      display:flex;
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
-    .b-label{
+
+    .b-label {
       font-size: 2.1rem;
       cursor: pointer;
     }
-    #srch-btn{
+
+    #srch-btn {
       background-color: #218838;
       width: 30%;
       color: black;
       font-weight: bold;
     }
-    
-    .cont-us{
+
+    .cont-us {
       /* background-color:whitesmoke; */
-      height:120vh;
-      padding-top:0rem;
+      height: 120vh;
+      padding-top: 0rem;
     }
+
     @media (max-width:780px) {
-        .cont-us{
-          height: 230vh;
-        }
-    }
-    @media (max-width:440px) {
-        .cont-us{
-          height: 250vh;
-        }
-    }
-    
-    .cont-h{
-      position: relative;
-      top:90px;
-      left:-20px;
-      color:rgb(53, 106, 203);
-      font-weight:bold;
-      font-size:2rem;
-      text-shadow: 2px 2px 2px black;
-    }
-    .cont-us-grid{
-      /* border: 2px solid black; */
-      width: 100% ;
-      display:grid;
-      grid-template-columns: repeat(2 ,1fr);
-      gap:10px;
-      
-    }
-    @media (max-width:780px) {
-      .cont-us-grid{
-        grid-template-columns: repeat(1 ,1fr);
+      .cont-us {
+        height: 230vh;
       }
     }
+
+    @media (max-width:440px) {
+      .cont-us {
+        height: 250vh;
+      }
+    }
+
+    .cont-h {
+      position: relative;
+      top: 90px;
+      left: -20px;
+      color: rgb(53, 106, 203);
+      font-weight: bold;
+      font-size: 2rem;
+      text-shadow: 2px 2px 2px black;
+    }
+
+    .cont-us-grid {
+      /* border: 2px solid black; */
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+
+    }
+
+    @media (max-width:780px) {
+      .cont-us-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
     /* @media (max-width:440px) {
       .cont-us-grid{
         height: 10vh;
       }
     } */
-   
-    .cont-logo-box{
-      
-      margin-top:3rem;
+
+    .cont-logo-box {
+
+      margin-top: 3rem;
       display: flex;
-      justify-content:center;
-    } 
-    .cont-logo{
-     
-      padding-top:5rem;
+      justify-content:space-between;
+      align-items: center;
+    }
+    .cont-logo-box img{
+      margin: auto;
+    }
+
+    .cont-logo {
+
+      padding-top: 5rem;
       display: flex;
       flex-direction: column;
       text-align: center;
+      margin: auto;
     }
-    .boy-img{
-     
-      filter:drop-shadow(5px 5px 1px rgba(5, 5, 5, 0.445));
+
+    .boy-img {
+
+      filter: drop-shadow(5px 5px 1px rgba(5, 5, 5, 0.445));
     }
+
     @media (max-width:440px) {
-      .boy-img{
+      .boy-img {
         text-align: center;
       }
     }
-    .cont-logos{
+
+    .cont-logos {
       z-index: 2;
       height: 3.5rem;
+    
       width: 3.5rem;
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      margin-left:20px;
-     
-    }
-  
-    #cont-logos-1{
-      border-radius: 50%;
-      width: 100%;
-      box-shadow:3px 3px 3px rgb(0, 0, 0);
-    }
-  
-    #cont-logos-2{
-      
-      border-radius: 50%;
-      width: 100%;
-      box-shadow:2px 2px 3px gray;
-    }
-    #cont-logos-3{
-    border-radius: 50%;
-    width: 100%;
-    box-shadow:3px 2px 2px rgb(41, 39, 39);
-  }
+      /* margin-left: 20px; */
 
-    .cont-email{
-      height: 3rem;
-      padding-top:5rem;
-     display: flex;
-     justify-content: center;
-    
+
     }
-    #cont-form{
-      width: 50%;
-      height:18rem; 
+
+    #cont-logos-1 {
+      border-radius: 50%;
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      box-shadow: 3px 3px 3px rgb(0, 0, 0);
+    }
+
+    #cont-logos-2 {
+
+      border-radius: 50%;
+      width: 100%;
+      box-shadow: 2px 2px 3px gray;
+    }
+
+    #cont-logos-3 {
+      border-radius: 50%;
+      width: 100%;
+      box-shadow: 3px 2px 2px rgb(41, 39, 39);
+    }
+
+    .cont-email {
+      height: 3rem;
+      padding-top: 5rem;
+      display: flex;
+      justify-content: center;
+
+    }
+
+    #cont-form {
+      margin-top: 3rem;
+      width:300px;
+      height: 24rem;
       background-color: rgba(251, 251, 251, 0.38);
       border-radius: 20px;
-      padding:5rem;
+      padding: 2rem;
     }
-    #cont-form input{
+
+    #cont-form input {
       border-radius: 10px;
+      margin: auto;
+      width:95% ;
       cursor: pointer;
     }
-    .footer{
-      position:relative;
-      width: 100%;
-      bottom:0px;
-      height:5rem;
-      background-color: rgb(53, 106, 203);
-      display:grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 10px;
-      color:white;
-    }
-    .footer div{
-      width: 100%;
-      display: flex;
-      justify-content:center;
-      align-items: center;
-    }
-    @media (max-width:780px) {
-        .footer{
-          grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    @media (max-width:440px) {
-        .footer{
-          grid-template-columns: repeat(1, 1fr);
-          height:10rem;
-        }
+
+    @media (max-width:390px) {
+      #cont-form input {
+        border-radius: 10px;
+        cursor: pointer;
+        width: 90%;
+      }
     }
 
-    .toggle{
-            position:fixed;
-            top:52px;
-            margin-top:5rem;
-            z-index: 5;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            align-items: center;
-            margin-top: 20px;
-            width:100%;
-            height:0px;
-            overflow: hidden;
-            background-color:rgba(53, 55, 59, 0.404);
-            transition: height 0.2s ease;
-        }
+  .footer {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  padding: 30px 0;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1 1 200px; /* responsive sizing */
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.brand {
+  color: #00c6ff;
+  font-weight: bold;
+}
+
+.footer-section h3:hover {
+  color: #00c6ff;
+  cursor: default;
+}
+
+/* Optional Responsive Enhancements */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .footer-section {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    flex: 1 1 100%;
+  }
+}
+
+
+    .toggle {
+      position: fixed;
+      top: 52px;
+      margin-top: 5rem;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      margin-top: 20px;
+      width: 100%;
+      height: 0px;
+      overflow: hidden;
+      background-color: rgba(53, 55, 59, 0.404);
+      transition: height 0.2s ease;
+    }
 
     @media (min-width:950px) {
-        .toggle-btns{
-          display: none;
-        }
-    }
-   #toggle-btn{
-    text-align: center;
-    padding:10px;
-    color:rgb(53, 106, 203);
-    text-shadow: 2px 2px 3px white;
-    background-color: white;
-    width:15rem;
-    font-weight: bold;
-    height:50px;
-    border-radius: 20px;
-   }
-   #openBtn,#closeBtn{
-    border-radius: 30px;
-    color:rgb(53, 106, 203);
-        font-size: 20px;
-        font-weight: bold;
-        background-color: white;
-   }
-   #openBtn:hover,#closeBtn:hover {
-        animation: 0.5s ease;
-        transform: scale(1.1);
-        border-bottom: 2px solid white;
-        box-shadow: 0 5px 10px white;
-        background-color: rgb(204, 199, 191);
+      .toggle-btns {
+        display: none;
       }
+    }
 
-   #toggle-btn:hover{
-    animation: 0.5s ease;
-        transform: scale(1.1);
-        border-bottom: 2px solid white;
-        box-shadow: 0 5px 10px white;
-        background-color: rgb(204, 199, 191);
-   }
+    #toggle-btn {
+      text-align: center;
+      padding: 10px;
+      color: rgb(53, 106, 203);
+      text-shadow: 2px 2px 3px white;
+      background-color: white;
+      width: 15rem;
+      font-weight: bold;
+      height: 50px;
+      border-radius: 20px;
+    }
 
+    #openBtn,
+    #closeBtn {
+      border-radius: 30px;
+      color: rgb(53, 106, 203);
+      font-size: 20px;
+      font-weight: bold;
+      background-color: white;
+    }
 
+    #openBtn:hover,
+    #closeBtn:hover {
+      animation: 0.5s ease;
+      transform: scale(1.1);
+      border-bottom: 2px solid white;
+      box-shadow: 0 5px 10px white;
+      background-color: rgb(204, 199, 191);
+    }
 
-
-   article {
-  --img-scale: 1.001;
-  --title-color: black;
-  --link-icon-translate: -20px;
-  --link-icon-opacity: 0;
-  position: relative;
-  border-radius: 16px;
-  box-shadow: none;
-  background: #fff;
-  transform-origin: center;
-  transition: all 0.4s ease-in-out;
-  overflow: hidden;
-}
-
-article a::after {
-  position: absolute;
-  inset-block: 0;
-  inset-inline: 0;
-  cursor: pointer;
-  content: "";
-}
-
-/* basic article elements styling */
-article h2 {
-  margin: 0 0 18px 0;
-  font-family: "Bebas Neue", cursive;
-  font-size: 1.5rem;
-  letter-spacing: 0.06em;
-  color: var(--title-color);
-  transition: color 0.3s ease-out;
-}
-
-figure {
-  margin: 0;
-  padding: 0;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-
-article img {
-  max-width: 100%;
-  transform-origin: center;
-  transform: scale(var(--img-scale));
-  transition: transform 0.4s ease-in-out;
-}
-
-.article-body {
-  padding: 24px;
-}
-
-article a {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  color: #28666e;
-}
-
-article a:focus {
-  outline: 1px dotted #28666e;
-}
-
-article a .icon {
-  min-width: 24px;
-  width: 24px;
-  height: 24px;
-  margin-left: 5px;
-  transform: translateX(var(--link-icon-translate));
-  opacity: var(--link-icon-opacity);
-  transition: all 0.3s;
-}
-
-/* using the has() relational pseudo selector to update our custom properties */
-article:has(:hover, :focus) {
-  --img-scale: 1.1;
-  --title-color: #28666e;
-  --link-icon-translate: 0;
-  --link-icon-opacity: 1;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-}
+    #toggle-btn:hover {
+      animation: 0.5s ease;
+      transform: scale(1.1);
+      border-bottom: 2px solid white;
+      box-shadow: 0 5px 10px white;
+      background-color: rgb(204, 199, 191);
+    }
 
 
 
 
+    article {
+      --img-scale: 1.001;
+      --title-color: black;
+      --link-icon-translate: -20px;
+      --link-icon-opacity: 0;
+      position: relative;
+      border-radius: 16px;
+      box-shadow: none;
+      background: #fff;
+      transform-origin: center;
+      transition: all 0.4s ease-in-out;
+      overflow: hidden;
+    }
 
-/* body {
+    article a::after {
+      position: absolute;
+      inset-block: 0;
+      inset-inline: 0;
+      cursor: pointer;
+      content: "";
+    }
+
+    /* basic article elements styling */
+    article h2 {
+      margin: 0 0 18px 0;
+      font-family: "Bebas Neue", cursive;
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      color: var(--title-color);
+      transition: color 0.3s ease-out;
+    }
+
+    figure {
+      margin: 0;
+      padding: 0;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    article img {
+      max-width: 100%;
+      transform-origin: center;
+      transform: scale(var(--img-scale));
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .article-body {
+      padding: 24px;
+    }
+  
+    article a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: #28666e;
+    }
+
+    article a:focus {
+      outline: 1px dotted #28666e;
+    }
+
+    article a .icon {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      margin-left: 5px;
+      transform: translateX(var(--link-icon-translate));
+      opacity: var(--link-icon-opacity);
+      transition: all 0.3s;
+    }
+
+    /* using the has() relational pseudo selector to update our custom properties */
+    article:has(:hover, :focus) {
+      --img-scale: 1.1;
+      --title-color: #28666e;
+      --link-icon-translate: 0;
+      --link-icon-opacity: 1;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    }
+
+
+
+
+
+    /* body {
   margin: 0;
   padding: 48px 0;
   font-family: "Figtree", sans-serif;
@@ -711,425 +838,463 @@ article:has(:hover, :focus) {
   background-image: linear-gradient(45deg, #7c9885, #b5b682);
   min-height: 100vh;
 } */
-body{
-    background-color:rgb(148, 165, 193);
-}
-.articles {
-  display: grid;
-  max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-}
+    body {
+      background-color: rgb(148, 165, 193);
+    }
 
-@media screen and (max-width: 960px) {
-  article {
-    container: card/inline-size;
-  }
-  .article-body p {
-    /* display: none; */
-  }
-}
+    .articles {
+      display: grid;
+      max-width: 1200px;
+      margin-inline: auto;
+      padding-inline: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
 
-@container card (min-width: 380px) {
-  .article-wrapper {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 16px;
-  }
-  .article-body {
-    padding-left: 0;
-  }
-  figure {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  figure img {
-    height: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
-  }
-}
+    @media screen and (max-width: 960px) {
+      article {
+        container: card/inline-size;
+      }
 
-.sr-only:not(:focus):not(:active) {
-  clip: rect(0 0 0 0); 
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap; 
-  width: 1px;
-}
+      .article-body p {
+        /* display: none; */
+      }
+    }
 
+    @container card (min-width: 380px) {
+      .article-wrapper {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 16px;
+      }
 
+      .article-body {
+        padding-left: 0;
+      }
 
+      figure {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
 
-    </style>
-  </head>
-    <nav class="navbar">
-      <h1 class="logo"><span style="color:rgb(53, 106, 203);">M</span>ake <span style="color:rgb(53, 106, 203);">T</span>rip</h1>
-      <ul class="manu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#place">Places</a></li>
-        <li><a href="#ticket">Tickets</a></li>
-        <li><a href="#branch">Branches</a></li>
-        <li><a href="#contect-us-p">Contect Us</a></li>
-      </ul>
-      
-      <div class="toggle-btns">
-        <button id="openBtn">Menu</button>
-        <button id="closeBtn" style="display:none;" >Close</button>
+      figure img {
+        height: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+    }
+
+    .sr-only:not(:focus):not(:active) {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+  </style>
+</head>
+<nav class="navbar">
+  <h1 class="logo"><span style="color:rgb(53, 106, 203);">M</span>ake <span style="color:rgb(53, 106, 203);">T</span>rip
+  </h1>
+  <ul class="manu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#place">Places</a></li>
+    <li><a href="#ticket">Tickets</a></li>
+    <li><a href="#branch">Branches</a></li>
+    <li><a href="#contect-us-p">Contect Us</a></li>
+  </ul>
+
+  <div class="toggle-btns">
+    <button id="openBtn">Menu</button>
+    <button id="closeBtn" style="display:none;">Close</button>
+  </div>
+</nav>
+<div class="toggle" id="toggle"><br>
+  <button id="toggle-btn"><a href="#home">Home</a></button>
+  <button id="toggle-btn"><a href="#place">Places</a></button>
+  <button id="toggle-btn"><a href="#ticket">Tickets</a></button>
+  <button id="toggle-btn"><a href="#branch">Branches</a></button>
+  <button id="toggle-btn"><a href="#contect-us-p">Contect Us</a></button>
+</div>
+<h1 id="home"></h1>
+<div class="Home-img"></div>
+<p id="place"></p>
+<div class="big-card-containar">
+  <h1 style="color:rgb(53, 106, 203); font-size: 2.5rem; margin-top: 5rem;padding:0 2rem;">
+    Popular Destination
+  </h1>
+</div><br>
+
+<section class="articles">
+  <article>
+    <div class="article-wrapper">
+      <figure>
+        <img src="Chinamount.jpg" alt="" />
+      </figure>
+      <div class="article-body">
+        <h2>This is China Town</h2>
+        <p>
+          Chinatown is a vibrant blend of culture, history, and tradition.
+          Its lively streets and delicious food bring people together from all walks of life.
+          A visit to Chinatown is like stepping into a world full of rich heritage and unforgettable experiences.</p>
+        <a href="#" class="read-more">
+          Read more <span class="sr-only">about this is some title</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
       </div>
-    </nav>
-    <div class="toggle" id="toggle"><br>
-      <button id="toggle-btn" ><a href="#home">Home</a></button>
-      <button id="toggle-btn" ><a href="#place">Places</a></button>
-      <button id="toggle-btn" ><a href="#ticket">Tickets</a></button>
-      <button id="toggle-btn" ><a href="#branch">Branches</a></button>
-      <button id="toggle-btn" ><a href="#contect-us-p">Contect Us</a></button>
     </div>
-    <h1 id="home"></h1>
-    <div class="Home-img"></div>
-    <p id="place"></p>
-    <div class="big-card-containar">
-      <h1 style="color:rgb(53, 106, 203); font-size: 2.5rem; margin-top: 5rem;padding:0 2rem;">
-        Popular Destination
-      </h1>
-      </div><br>
-      
-      <section class="articles">
-        <article>
-          <div class="article-wrapper">
-            <figure>
-              <img src="Chinamount.jpg" alt="" />
-            </figure>
-            <div class="article-body">
-              <h2>This is China Town</h2>
-              <p>
-                Chinatown is a vibrant blend of culture, history, and tradition.
-Its lively streets and delicious food bring people together from all walks of life.
-A visit to Chinatown  is like stepping into a world full of rich heritage and unforgettable experiences.</p>
-              <a href="#" class="read-more">
-                Read more <span class="sr-only">about this is some title</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-        <article>
-      
-          <div class="article-wrapper">
-            <figure>
-              <img src="Woman.jpg" alt="" />
-            </figure>
-            <div class="article-body">
-              <h2>This is New Zealand</h2>
-              <p>New Zealand
-                Known for its stunning natural beauty, New Zealand offers lush forests, mountains, lakes, and beaches. It's a paradise for outdoor lovers, with plenty of activities like hiking, bungee jumping, and exploring the vibrant culture.
-               </p>
-              <a href="#" class="read-more">
-                Read more <span class="sr-only">about this is some title</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-        <article>
-      
-          <div class="article-wrapper">
-            <figure>
-              <img src="Guiter.jpg" alt="" />
-            </figure>
-            <div class="article-body">
-              <h2>This is Norway</h2>
-              <p>
-                Norway's stunning fjords and towering mountains create a dreamlike landscape, while the midnight sun and Northern Lights offer mesmerizing natural spectacles,
-                From charming villages to bustling cities, Norway has something for everyone to enjoy.</p>
-              <a href="#" class="read-more">
-                Read more <span class="sr-only">about this is some title</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-      </section><br><br>
-      <section class="articles">
-        <article>
-          <div class="article-wrapper">
-            <figure>
-              <img src="cities6.jpg" alt="" />
-            </figure>
-            <div class="article-body">
-              <h2>This is London</h2>
-              <p>
-                London is a city with a rich history that spans over 2,000 years, home to iconic landmarks like the Tower of London, Westminster Abbey, and Buckingham Palace. It is known for its cultural significance, and the Victoria and Albert Museum. 
-              </p>
-              <a href="#" class="read-more">
-                Read more <span class="sr-only">about this is some title</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-        <article>
-      
-          <div class="article-wrapper">
-            <figure>
-              <img src="cities4.jpg" alt="" />
-            </figure>
-            <div class="article-body">
-              <h2>This is New York</h2>
-              <p>
-                New York City is one of the most iconic and dynamic cities in the world, known for its towering skyscrapers, including the famous Empire State Building and One World Trade Center.  
-                </p>
-              <a href="#" class="read-more">
-                Read more <span class="sr-only">about this is some title</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-        <article>
-      
-          <div class="article-wrapper">
-            <figure>
-              <img src="cities5.jpg" alt="" />
-            </figure>
-            <div class="article-body">
-              <h2>This is Dubai</h2>
-              <p>
-                Dubai is a modern, futuristic city known for its stunning skyline, including the Burj Khalifa, the tallest building in the world. It’s a global business hub with luxurious shopping, world-class hotels, and extravagant resorts. 
-              </p>
-              <a href="#" class="read-more">
-                Read more <span class="sr-only">about this is some title</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-      </section>
+  </article>
+  <article>
 
-    <div class="ticket-box" id="ticket">
-      <br /><br />
-      <h1 class="T-headline">Book your Ticket</h1>
-      <img id="T-car" src="car-40241_1280.png" alt="" />
-      <img id="T-logo" src="Travellogo2.png" alt="">
-
-      <div class="T-containar">
-        <div class="container">
-          <h1>Ticket Booking</h1>
-          <form  data-aos="fade-right"
-          data-aos-offset="300"
-          data-aos-easing="ease-in-sine" id="ticketForm">
-            <label for="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="Enter your name"
-              required
-            />
-
-            <label for="members">Number of Members:</label>
-            <input
-              type="number"
-              id="members"
-              placeholder="Enter number of members"
-              required
-            />
-
-            <label for="budget">Select Budget:</label>
-            <select id="budget" required>
-              <option value="">Select Budget</option>
-              <option value="50k">₹50,000</option>
-              <option value="100k">₹100,000</option>
-              <option value="150k">₹150,000</option>
-            </select>
-            <a href="https://wa.me/+918856988361">
-            <button type="submit">Book Ticket</button>
-          </a>
-          </form>
-
-          <div class="confirmation" id="confirmationMessage">
-            <span id="confirmName"></span>
-            <span id="confirmMembers"></span>
-             <span id="confirmBudget"></span>
-          </div>
-        </div>
+    <div class="article-wrapper">
+      <figure>
+        <img src="Woman.jpg" alt="" />
+      </figure>
+      <div class="article-body">
+        <h2>This is New Zealand</h2>
+        <p>New Zealand
+          Known for its stunning natural beauty, New Zealand offers lush forests, mountains, lakes, and beaches. It's a
+          paradise for outdoor lovers, with plenty of activities like hiking, bungee jumping, and exploring the vibrant
+          culture.
+        </p>
+        <a href="#" class="read-more">
+          Read more <span class="sr-only">about this is some title</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
       </div>
-    <!-- <marquee style="height:200px;width: 100%;overflow: hidden;" scrollamount="30" direction="right"><img id="T-Airplan" src="Airplan.png" alt=""></marquee> -->
     </div>
-    <!--Ticklet-box closed !-->
+  </article>
+  <article>
+
+    <div class="article-wrapper">
+      <figure>
+        <img src="Guiter.jpg" alt="" />
+      </figure>
+      <div class="article-body">
+        <h2>This is Norway</h2>
+        <p>
+          Norway's stunning fjords and towering mountains create a dreamlike landscape, while the midnight sun and
+          Northern Lights offer mesmerizing natural spectacles,
+          From charming villages to bustling cities, Norway has something for everyone to enjoy.</p>
+        <a href="#" class="read-more">
+          Read more <span class="sr-only">about this is some title</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+</section><br><br>
+<section class="articles">
+  <article>
+    <div class="article-wrapper">
+      <figure>
+        <img src="cities6.jpg" alt="" />
+      </figure>
+      <div class="article-body">
+        <h2>This is London</h2>
+        <p>
+          London is a city with a rich history that spans over 2,000 years, home to iconic landmarks like the Tower of
+          London, Westminster Abbey, and Buckingham Palace. It is known for its cultural significance, and the Victoria
+          and Albert Museum.
+        </p>
+        <a href="#" class="read-more">
+          Read more <span class="sr-only">about this is some title</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+  <article>
+
+    <div class="article-wrapper">
+      <figure>
+        <img src="cities4.jpg" alt="" />
+      </figure>
+      <div class="article-body">
+        <h2>This is New York</h2>
+        <p>
+          New York City is one of the most iconic and dynamic cities in the world, known for its towering skyscrapers,
+          including the famous Empire State Building and One World Trade Center.
+        </p>
+        <a href="#" class="read-more">
+          Read more <span class="sr-only">about this is some title</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+  <article>
+
+    <div class="article-wrapper">
+      <figure>
+        <img src="cities5.jpg" alt="" />
+      </figure>
+      <div class="article-body">
+        <h2>This is Dubai</h2>
+        <p>
+          Dubai is a modern, futuristic city known for its stunning skyline, including the Burj Khalifa, the tallest
+          building in the world. It’s a global business hub with luxurious shopping, world-class hotels, and extravagant
+          resorts.
+        </p>
+        <a href="#" class="read-more">
+          Read more <span class="sr-only">about this is some title</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+</section>
+
+<div class="ticket-box" id="ticket">
+  <br /><br />
+  <h1 class="T-headline">Book your Ticket</h1>
+  <img id="T-car" src="car-40241_1280.png" alt="" />
+  <img id="T-logo" src="Travellogo2.png" alt="">
+
+  <div class="T-containar">
+    <div class="container">
+      <h1>Ticket Booking</h1>
+      <form data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" id="ticketForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+
+        <label for="members">Number of Members:</label>
+        <input type="number" id="members" placeholder="Enter number of members" required />
+
+        <label for="budget">Select Budget:</label>
+        <select id="budget" required>
+          <option value="">Select Budget</option>
+          <option value="50k">₹50,000</option>
+          <option value="100k">₹100,000</option>
+          <option value="150k">₹150,000</option>
+        </select>
+        <a href="https://wa.me/+918856988361">
+          <button type="submit">Book Ticket</button>
+        </a>
+      </form>
+
+      <div class="confirmation" id="confirmationMessage">
+        <span id="confirmName"></span>
+        <span id="confirmMembers"></span>
+        <span id="confirmBudget"></span>
+      </div>
+    </div>
+  </div>
+  <!-- <marquee style="height:200px;width: 100%;overflow: hidden;" scrollamount="30" direction="right"><img id="T-Airplan" src="Airplan.png" alt=""></marquee> -->
+</div>
+<!--Ticklet-box closed !-->
+
+
+<div class="main-branches" id="branch"> <!--main-branches Open !--->
+  <h1 class="branch-hd">Branches</h1>
+  <div class="branches">
+    <div class="branch-child" data-aos="zoom-out-up"><a target="_blank"
+        href="https://www.google.com/search?q=bandra+west&rlz=1C1GCEU_enIN1125IN1125&oq=bandra+west&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQLhixAxiABDIHCAIQABiABDINCAMQLhiDARixAxiABDIHCAQQABiABDIHCAUQABiABDINCAYQABiDARixAxiABDIQCAcQLhivARjHARiABBiOBTIHCAgQABiABDIHCAkQABiABNIBCDY0NjNqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8"><img
+          src="branche2.jpg"></a></div>
+    <div class="branch-child" data-aos="zoom-out-up"><a target="_blank"
+        href="https://www.google.com/search?q=naigaon&sca_esv=6ac826d67940f619&rlz=1C1GCEU_enIN1125IN1125&ei=r1gaZ9e0EeKm2roP8_rcwAM&gs_ssp=eJzj4tTP1TcwMTRLKjNg9GLPS8xMT8zPAwA30QXh&oq=&gs_lp=Egxnd3Mtd2l6LXNlcnAiACoCCAAyFBAuGIAEGJECGLQCGIoFGOoC2AECMhQQABiABBiRAhi0AhiKBRjqAtgBAjIUEC4YgAQYkQIYtAIYigUY6gLYAQIyFBAuGIAEGJECGLQCGIoFGOoC2AECMhQQLhiABBiRAhi0AhiKBRjqAtgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAjIWEC4YAxi0AhjlAhjqAhiMAxiPAdgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAkijOVDgHFiZInACeACQAQSYAaYBoAGZBaoBAzAuNbgBAcgBAPgBAZgCA6AC0QGoAgrCAgoQABiABBiwAxgKwgIZEC4YgAQYsAMYxwEYyAMYChiOBRivAdgBAcICExAuGIAEGLADGLEDGMgDGArYAQHCAhAQLhiABBiwAxjIAxgK2AEBwgIWEC4YgAQYsAMYxwEYyAMYChivAdgBAcICDhAuGIAEGJECGLEDGIoFwgILEAAYgAQYkQIYigXCAhAQLhiABBjHARgKGI4FGK8BwgIHEAAYgAQYCsICBxAuGIAEGArCAh0QLhiABBiRAhixAxiKBRiXBRjcBBjeBBjgBNgBAZgDCogGAZAGFLoGBggBEAEYCLoGBAgCGAeSBwMyLjGgB4Fg&sclient=gws-wiz-serp">
+        <img src="branches3.jpg" alt=""></a></div>
+    <div class="branch-child" data-aos="zoom-out-up"> <a target="_blank"
+        href="https://www.google.com/search?q=virar&sca_esv=6ac826d67940f619&rlz=1C1GCEU_enIN1125IN1125&ei=r1gaZ9e0EeKm2roP8_rcwAM&ved=0ahUKEwiXyOKdnKeJAxVik1YBHXM9FzgQ4dUDCBA&uact=5&oq=virar&gs_lp=Egxnd3Mtd2l6LXNlcnAiBXZpcmFyMhQQLhiABBixAxjHARjJAxiOBRivATIFEAAYgAQyDhAuGIAEGJECGLEDGIoFMgsQABiABBiRAhiKBTIFEAAYgAQyDhAuGIAEGMcBGI4FGK8BMggQABiABBixAzIFEAAYgAQyBRAAGIAEMgUQLhiABDIjEC4YgAQYsQMYxwEYyQMYjgUYrwEYlwUY3AQY3gQY4ATYAQFIrdwIUJbGCFiH1whwBXgAkAEDmAG4AaABywuqAQQwLjEwuAEDyAEA-AEBmAILoALVCKgCFMICChAAGIAEGLADGArCAhkQLhiABBiwAxjHARjIAxgKGI4FGK8B2AEBwgITEC4YgAQYsAMYsQMYyAMYCtgBAcICEBAuGIAEGLADGMgDGArYAQHCAhYQLhiABBiwAxjHARjIAxgKGK8B2AEBwgIQEC4YgAQYxwEYChiOBRivAcICBxAAGIAEGArCAgcQLhiABBgKwgIdEC4YgAQYkQIYsQMYigUYlwUY3AQY3gQY4ATYAQHCAh0QLhiABBi0AhjUAxjlAhi3AxiKBRjqAhiKA9gBAsICHRAAGIAEGLQCGNQDGOUCGLcDGIoFGOoCGIoD2AECwgIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAcICFhAuGAMYtAIY5QIY6gIYjAMYjwHYAQHCAhEQLhiABBixAxiDARjUAhiKBcICCxAAGIAEGLEDGIMBwgILEC4YgAQYsQMY5QTCAggQLhiABBixA8ICCxAuGIAEGNEDGMcBwgIOEC4YgAQYsQMY0QMYxwHCAgsQLhiABBiRAhiKBcICDhAAGIAEGLEDGIMBGIoFwgIaEC4YgAQYkQIYigUYlwUY3AQY3gQY4ATYAQHCAhcQLhiABBixAxiXBRjcBBjeBBjfBNgBAZgDDIgGAZAGFLoGBggBEAEYCLoGBAgCGAeSBwM1LjagB62-AQ&sclient=gws-wiz-serp">
+        <img src="branches4.jpg" alt=""></a></div>
+    <div class="branch-child" data-aos="zoom-out-up"> <a target="_blank"
+        href="https://www.google.com/search?q=Kandivali&sca_esv=6ac826d67940f619&rlz=1C1GCEU_enIN1125IN1125&ei=wVkaZ_-yM4_g2roPzpbeMQ&ved=0ahUKEwi_l9ignaeJAxUPsFYBHU6LNwYQ4dUDCBA&uact=5&oq=Kandivali&gs_lp=Egxnd3Mtd2l6LXNlcnAiCUthbmRpdmFsaTIKEAAYgAQYQxiKBTINEC4YgAQYsQMYQxiKBTIKEAAYgAQYQxiKBTIFEAAYgAQyDhAuGIAEGMcBGI4FGK8BMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigUyBRAAGIAEMgUQLhiABEjdPFCQDVimNnACeAGQAQOYAbgBoAG6DaoBBDAuMTO4AQPIAQD4AQGYAgygAtALqAIUwgIKEAAYsAMY1gQYR8ICDRAAGIAEGLADGEMYigXCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIcEC4YgAQYsAMYQxjHARjIAxiKBRiOBRivAdgBAcICExAuGIAEGEMYxwEYigUYjgUYrwHCAggQLhiABBixA8ICChAuGIAEGEMYigXCAggQABiABBixA8ICDhAAGIAEGLEDGIMBGIoFwgIcEC4YgAQYsQMYQxiKBRiXBRjcBBjeBBjgBNgBAcICExAuGIAEGEMYtAIYigUY6gLYAQLCAhMQABiABBhDGLQCGIoFGOoC2AECwgIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAcICFhAuGAMYtAIY5QIY6gIYjAMYjwHYAQHCAgsQABiABBixAxiDAcICCxAuGIAEGNEDGMcBwgIZEC4YgAQYQxiKBRiXBRjcBBjeBBjfBNgBAcICGRAuGIAEGEMYigUYlwUY3AQY3gQY4ATYAQHCAgsQLhiABBixAxiDAZgDGYgGAZAGFLoGBggBEAEYCLoGBAgCGAeSBwQyLjEwoAeR5wE&sclient=gws-wiz-serp">
+        <img src="branches5.jpg" alt=""></a></div>
+  </div> <!--- Branches-Box closed !-->
+
+  <div class="b-search-box">
+    <div class="map-img"><img src="maps.png" alt=""></div>
+    <div class="b-search">
+      <form class="b-form" action="">
+        <label class="b-label" for="search">Search Branch:</label>
+        <input type="text" name="srch" id="srch" placeholder="Enter branch name" required />
+        <input type="button" value="Search" id="srch-btn">
+    </div>
+  </div>
+  </form>
+
+</div><!--main-branches-Box Closed !--->
+
+<div id="contect-us-p" class="cont-us">
+  <h1 class="cont-h">Contect <span style="color:green;">Us</span></h1>
+  <div class="cont-us-grid">
+    <div class="cont-logo">
+      <h2 style="text-align: center;font-size:2rem;"><span
+          style="color:rgb(53, 106, 203);text-shadow: 1px 1px black;">Here</span> to <span
+          style="color: green;text-shadow: 1px 1px white;">Contect</span></h2><br>
+      <div class="boy-img"><img src="callperson.png" alt=""></div>
+
+      <div class="cont-logo-box">
+        <div class="cont-logos"><a target="_zblank"
+            href="https://www.instagram.com/dhiraj.21_/profilecard/?igsh=MTFkNTl4d2U2dTFncQ=="><img id="cont-logos-1"
+              src="insta1-removebg-preview.png" alt=""></a></div>
+        <div class="cont-logos"><a
+            href="https://api.whatsapp.com/send?phone=8856988361&text=Member%20joined%20your%20website.%20Total%20members%3A%2023"><img
+              id="cont-logos-1" src="calling.png" alt=""></a></div>
+        <div class="cont-logos"> <a target="_blank" href="https://www.facebook.com/profile.php?id=61556014724232 "><img
+              id="cont-logos-1" src="facbook.png" alt=""></a></div>
+        <div class="cont-logos"><a target="_blank"
+            href="https://x.com/DhirajGupt8856?t=q-yGGoyt3FKEM6hBBgTohw&s=09"><img id="cont-logos-1" src="twitter.png"
+              alt=""></a></div>
+      </div>
+    </div>
+    <div class="cont-email">
+
+      <form action="https://formspree.io/f/mldgrqgw" method="POST" id="cont-form">
+        <label for="name" id="cont-label">Username:</label>
+        <input type="text" name="UserName" id="cont-name" placeholder="Enter your name..."><br><br>
+
+        <label for="pass" id="cont-label-pass">E-mail Id:</label>
+        <input type="email" name="Email-ID" id="cont-pass" placeholder="ABC@gmail.com"><br><br>
+
+        <label for="msg">Message:</label>
+        <textarea style="width:95%;height:100px;border-radius:10px;font-size:20px;padding:10px;" name="Message"
+          id=""></textarea>
+        <br><br>
+        <center><button type="submit" id="cont-btn">Send</button></center>
+      </form>
+
+    </div>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Created By <span class="brand">Dhiraj™</span></h3>
+    </div>
+    <div class="footer-section">
+      <p>© 2025 All Rights Reserved</p>
+    </div>
+    <div class="footer-section">
+      <p>📞 8856988361</p>
+      <p>📧 dhirajgupta@361gmail.com</p>
+    </div>
+  </div>
+</footer>
   
+</div>
 
-  <div class="main-branches" id="branch">  <!--main-branches Open !--->
-          <h1 class="branch-hd">Branches</h1>
-    <div class="branches">     
-        <div class="branch-child" data-aos="zoom-out-up"><a target="_blank" href="https://www.google.com/search?q=bandra+west&rlz=1C1GCEU_enIN1125IN1125&oq=bandra+west&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQLhixAxiABDIHCAIQABiABDINCAMQLhiDARixAxiABDIHCAQQABiABDIHCAUQABiABDINCAYQABiDARixAxiABDIQCAcQLhivARjHARiABBiOBTIHCAgQABiABDIHCAkQABiABNIBCDY0NjNqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8"><img src="branche2.jpg"></a></div>
-        <div class="branch-child" data-aos="zoom-out-up"><a target="_blank" href="https://www.google.com/search?q=naigaon&sca_esv=6ac826d67940f619&rlz=1C1GCEU_enIN1125IN1125&ei=r1gaZ9e0EeKm2roP8_rcwAM&gs_ssp=eJzj4tTP1TcwMTRLKjNg9GLPS8xMT8zPAwA30QXh&oq=&gs_lp=Egxnd3Mtd2l6LXNlcnAiACoCCAAyFBAuGIAEGJECGLQCGIoFGOoC2AECMhQQABiABBiRAhi0AhiKBRjqAtgBAjIUEC4YgAQYkQIYtAIYigUY6gLYAQIyFBAuGIAEGJECGLQCGIoFGOoC2AECMhQQLhiABBiRAhi0AhiKBRjqAtgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAjIWEC4YAxi0AhjlAhjqAhiMAxiPAdgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAkijOVDgHFiZInACeACQAQSYAaYBoAGZBaoBAzAuNbgBAcgBAPgBAZgCA6AC0QGoAgrCAgoQABiABBiwAxgKwgIZEC4YgAQYsAMYxwEYyAMYChiOBRivAdgBAcICExAuGIAEGLADGLEDGMgDGArYAQHCAhAQLhiABBiwAxjIAxgK2AEBwgIWEC4YgAQYsAMYxwEYyAMYChivAdgBAcICDhAuGIAEGJECGLEDGIoFwgILEAAYgAQYkQIYigXCAhAQLhiABBjHARgKGI4FGK8BwgIHEAAYgAQYCsICBxAuGIAEGArCAh0QLhiABBiRAhixAxiKBRiXBRjcBBjeBBjgBNgBAZgDCogGAZAGFLoGBggBEAEYCLoGBAgCGAeSBwMyLjGgB4Fg&sclient=gws-wiz-serp"> <img src="branches3.jpg" alt=""></a></div>
-        <div class="branch-child" data-aos="zoom-out-up"> <a target="_blank" href="https://www.google.com/search?q=virar&sca_esv=6ac826d67940f619&rlz=1C1GCEU_enIN1125IN1125&ei=r1gaZ9e0EeKm2roP8_rcwAM&ved=0ahUKEwiXyOKdnKeJAxVik1YBHXM9FzgQ4dUDCBA&uact=5&oq=virar&gs_lp=Egxnd3Mtd2l6LXNlcnAiBXZpcmFyMhQQLhiABBixAxjHARjJAxiOBRivATIFEAAYgAQyDhAuGIAEGJECGLEDGIoFMgsQABiABBiRAhiKBTIFEAAYgAQyDhAuGIAEGMcBGI4FGK8BMggQABiABBixAzIFEAAYgAQyBRAAGIAEMgUQLhiABDIjEC4YgAQYsQMYxwEYyQMYjgUYrwEYlwUY3AQY3gQY4ATYAQFIrdwIUJbGCFiH1whwBXgAkAEDmAG4AaABywuqAQQwLjEwuAEDyAEA-AEBmAILoALVCKgCFMICChAAGIAEGLADGArCAhkQLhiABBiwAxjHARjIAxgKGI4FGK8B2AEBwgITEC4YgAQYsAMYsQMYyAMYCtgBAcICEBAuGIAEGLADGMgDGArYAQHCAhYQLhiABBiwAxjHARjIAxgKGK8B2AEBwgIQEC4YgAQYxwEYChiOBRivAcICBxAAGIAEGArCAgcQLhiABBgKwgIdEC4YgAQYkQIYsQMYigUYlwUY3AQY3gQY4ATYAQHCAh0QLhiABBi0AhjUAxjlAhi3AxiKBRjqAhiKA9gBAsICHRAAGIAEGLQCGNQDGOUCGLcDGIoFGOoCGIoD2AECwgIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAcICFhAuGAMYtAIY5QIY6gIYjAMYjwHYAQHCAhEQLhiABBixAxiDARjUAhiKBcICCxAAGIAEGLEDGIMBwgILEC4YgAQYsQMY5QTCAggQLhiABBixA8ICCxAuGIAEGNEDGMcBwgIOEC4YgAQYsQMY0QMYxwHCAgsQLhiABBiRAhiKBcICDhAAGIAEGLEDGIMBGIoFwgIaEC4YgAQYkQIYigUYlwUY3AQY3gQY4ATYAQHCAhcQLhiABBixAxiXBRjcBBjeBBjfBNgBAZgDDIgGAZAGFLoGBggBEAEYCLoGBAgCGAeSBwM1LjagB62-AQ&sclient=gws-wiz-serp"> <img src="branches4.jpg" alt=""></a></div>
-        <div class="branch-child" data-aos="zoom-out-up"> <a target="_blank" href="https://www.google.com/search?q=Kandivali&sca_esv=6ac826d67940f619&rlz=1C1GCEU_enIN1125IN1125&ei=wVkaZ_-yM4_g2roPzpbeMQ&ved=0ahUKEwi_l9ignaeJAxUPsFYBHU6LNwYQ4dUDCBA&uact=5&oq=Kandivali&gs_lp=Egxnd3Mtd2l6LXNlcnAiCUthbmRpdmFsaTIKEAAYgAQYQxiKBTINEC4YgAQYsQMYQxiKBTIKEAAYgAQYQxiKBTIFEAAYgAQyDhAuGIAEGMcBGI4FGK8BMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigUyBRAAGIAEMgUQLhiABEjdPFCQDVimNnACeAGQAQOYAbgBoAG6DaoBBDAuMTO4AQPIAQD4AQGYAgygAtALqAIUwgIKEAAYsAMY1gQYR8ICDRAAGIAEGLADGEMYigXCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIcEC4YgAQYsAMYQxjHARjIAxiKBRiOBRivAdgBAcICExAuGIAEGEMYxwEYigUYjgUYrwHCAggQLhiABBixA8ICChAuGIAEGEMYigXCAggQABiABBixA8ICDhAAGIAEGLEDGIMBGIoFwgIcEC4YgAQYsQMYQxiKBRiXBRjcBBjeBBjgBNgBAcICExAuGIAEGEMYtAIYigUY6gLYAQLCAhMQABiABBhDGLQCGIoFGOoC2AECwgIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAcICFhAuGAMYtAIY5QIY6gIYjAMYjwHYAQHCAgsQABiABBixAxiDAcICCxAuGIAEGNEDGMcBwgIZEC4YgAQYQxiKBRiXBRjcBBjeBBjfBNgBAcICGRAuGIAEGEMYigUYlwUY3AQY3gQY4ATYAQHCAgsQLhiABBixAxiDAZgDGYgGAZAGFLoGBggBEAEYCLoGBAgCGAeSBwQyLjEwoAeR5wE&sclient=gws-wiz-serp"> <img src="branches5.jpg" alt=""></a></div>
-    </div> <!--- Branches-Box closed !-->
+<script>
 
-    <div class="b-search-box">
-      <div class="map-img"><img src="maps.png" alt=""></div>
-           <div class="b-search">
-           <form class="b-form" action="">
-             <label class="b-label" for="search">Search Branch:</label>
-             <input type="text" name="srch" id="srch"  placeholder="Enter branch name" required />
-             <input type="button" value="Search" id="srch-btn">
-          </div>
-          </div>
-        </form>
-          
-    </div><!--main-branches-Box Closed !--->
+  // ------------user form clear method------------
 
-        <div id="contect-us-p" class="cont-us">
-           <h1 class="cont-h">Contect <span style="color:green;">Us</span></h1>
-           <div class="cont-us-grid">
-              <div class="cont-logo">
-                <h2 style="text-align: center;font-size:2rem;"><span style="color:rgb(53, 106, 203);text-shadow: 1px 1px black;">Here</span> to <span style="color: green;text-shadow: 1px 1px white;">Contect</span></h2><br>
-                <div class="boy-img"><img src="callperson.png" alt=""></div>
-                <div class="cont-logo-box">
-                <div class="cont-logos"><a target="_zblank" href="https://www.instagram.com/dhiraj.21_/profilecard/?igsh=MTFkNTl4d2U2dTFncQ=="><img id="cont-logos-1" src="insta1-removebg-preview.png" alt=""></a></div>
-                <div class="cont-logos"><a href="https://api.whatsapp.com/send?phone=8856988361&text=Member%20joined%20your%20website.%20Total%20members%3A%2023"><img id="cont-logos-1" src="calling.png" alt=""></a></div>
-                <div class="cont-logos"> <a target="_blank" href="https://www.facebook.com/profile.php?id=61556014724232 "><img id="cont-logos-1" src="facbook.png" alt=""></a></div>
-                <div class="cont-logos"><a target="_blank" href="https://x.com/DhirajGupt8856?t=q-yGGoyt3FKEM6hBBgTohw&s=09"><img id="cont-logos-1" src="twitter.png" alt=""></a></div>
-              </div>
-              </div>
-              <div class="cont-email">
-                
-                <form action="https://formspree.io/f/mldgrqgw"
-      method="POST" id="cont-form">
-    <label for="name" id="cont-label">Username:</label>
-    <input type="text" name="UserName" id="cont-name" placeholder="Enter your name..."><br>
-    
-    <label for="pass" id="cont-label-pass">E-mail Id:</label>
-    <input type="email" name="Email-ID" id="cont-pass" placeholder="ABC@gmail.com"><br>
-    
-    <label for="msg">Message:</label>
-    <textarea style="width:100%;height:100px;border-radius:10px;font-size:20px;padding:10px;" name="Message" id=""></textarea>
-                  <br><br>
-                  <center><button type="submit" id="cont-btn">Send</button></center>
-           </form>
-                
-              </div>
-             
-          </div>
-        </div>
-           <footer class="footer">
-            <div><h3>Created By Dhiraj&#8482;</h3></div>
-            <div><h3>&#169;Copy Write</h3></div>
-            <div><h3>Phone No: 8856988361</h3></div>
-            <div><h3>Email Id: dhirajgupta@361gmail.com</h3></div>
-           </footer>
-        </div>
-    
-    <script>
+  document.getElementById('cont-form').addEventListener('submit', function (event) {
+    // Prevents the default form submission behavior (page reload)
+    event.preventDefault();
 
-// ------------user form clear method------------
-
- document.getElementById('cont-form').addEventListener('submit', function(event) {
-      // Prevents the default form submission behavior (page reload)
-      event.preventDefault();
-
-      // Send form data to Formspree (You can add your logic here, if any)
-      const formData = new FormData(this);
-      fetch(this.action, {
-          method: this.method,
-          body: formData,
-          headers: {
-              'Accept': 'application/json'
-          }
-      }).then(response => {
-          if (response.ok) {
-              // Form successfully submitted, clear the form fields
-              document.getElementById('cont-form').reset();
-              alert("Form submitted successfully!");
-          } else {
-              alert("There was an issue with your submission.");
-          }
-      }).catch(error => {
-          alert("An error occurred. Please try again.");
-      });
+    // Send form data to Formspree (You can add your logic here, if any)
+    const formData = new FormData(this);
+    fetch(this.action, {
+      method: this.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        // Form successfully submitted, clear the form fields
+        document.getElementById('cont-form').reset();
+        alert("Form submitted successfully!");
+      } else {
+        alert("There was an issue with your submission.");
+      }
+    }).catch(error => {
+      alert("An error occurred. Please try again.");
+    });
   });
 
 
-      
-      document
-        .getElementById("ticketForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
 
-          // Get values from the form
-          const name = document.getElementById("name").value;
-          const members = document.getElementById("members").value;
-          const budget = document.getElementById("budget").value;
+  document
+    .getElementById("ticketForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
 
-          // Set confirmation details
-          document.getElementById("confirmName").textContent = name;
-          document.getElementById("confirmMembers").textContent = members;
-          document.getElementById("confirmBudget").textContent = budget;
+      // Get values from the form
+      const name = document.getElementById("name").value;
+      const members = document.getElementById("members").value;
+      const budget = document.getElementById("budget").value;
 
-          // Show confirmation message
-          document.getElementById("confirmationMessage").style.display=alert("Thank you for  booking your ticket"); 
-          
-          const phoneNumber = "8856988361";
-    const message = encodeURIComponent(`Member joined your website. Total members: ${members}`);
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+      // Set confirmation details
+      document.getElementById("confirmName").textContent = name;
+      document.getElementById("confirmMembers").textContent = members;
+      document.getElementById("confirmBudget").textContent = budget;
 
-    // Open WhatsApp in a new tab
-    window.open(whatsappUrl, "_blank");
-          
-          // Clear form after submission
-          document.getElementById("ticketForm").reset();
-        });
-      // --Search fuction-- // 
-      document.getElementById("srch-btn").addEventListener('click',()=>{
-        var search = document.getElementById("srch").value;
-       
-        if(search){
-          var searchurl = 'https://www.google.com/search?q=' +encodeURIComponent(search)
-         window.open(searchurl, ' _blank');
-        }
-         else{
-          alert("Please enter a search term");
-         }
-      });
+      // Show confirmation message
+      document.getElementById("confirmationMessage").style.display = alert("Thank you for  booking your ticket");
 
-      document.getElementById("openBtn").addEventListener('click',()=>{
-            document.getElementById("toggle").style.height = "360px";
-            // document.getElementById('slider').style.transform="scale(1.04)";
-            document.getElementById('toggle').style.opacity="100%";
-            document.getElementById("openBtn").style.display = "none";
-            document.getElementById("closeBtn").style.display = "inline";
-        });
-        document.getElementById("closeBtn").addEventListener('click',()=>{
-            document.getElementById("toggle").style.height = "0px";
-            document.getElementById('toggle').style.opacity="50%";
-            // document.getElementById('slider').style.border="1px solid white";
-            document.getElementById("openBtn").style.display = "inline";
-            document.getElementById("closeBtn").style.display = "none";
-        });
+      const phoneNumber = "8856988361";
+      const message = encodeURIComponent(`Member joined your website. Total members: ${members}`);
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+
+      // Open WhatsApp in a new tab
+      window.open(whatsappUrl, "_blank");
+
+      // Clear form after submission
+      document.getElementById("ticketForm").reset();
+    });
+  // --Search fuction-- // 
+  document.getElementById("srch-btn").addEventListener('click', () => {
+    var search = document.getElementById("srch").value;
+
+    if (search) {
+      var searchurl = 'https://www.google.com/search?q=' + encodeURIComponent(search)
+      window.open(searchurl, ' _blank');
+    }
+    else {
+      alert("Please enter a search term");
+    }
+  });
+
+  document.getElementById("openBtn").addEventListener('click', () => {
+    document.getElementById("toggle").style.height = "360px";
+    // document.getElementById('slider').style.transform="scale(1.04)";
+    document.getElementById('toggle').style.opacity = "100%";
+    document.getElementById("openBtn").style.display = "none";
+    document.getElementById("closeBtn").style.display = "inline";
+  });
+  document.getElementById("closeBtn").addEventListener('click', () => {
+    document.getElementById("toggle").style.height = "0px";
+    document.getElementById('toggle').style.opacity = "50%";
+    // document.getElementById('slider').style.border="1px solid white";
+    document.getElementById("openBtn").style.display = "inline";
+    document.getElementById("closeBtn").style.display = "none";
+  });
 
 
-    </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-  </body>
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</body>
+
 </html>
